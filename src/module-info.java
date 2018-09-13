@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author howardcheung
- *
- */
-module Mapper {
-}
