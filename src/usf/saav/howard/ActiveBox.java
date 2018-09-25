@@ -28,7 +28,7 @@ public class ActiveBox extends Frame {
 	// gets the information from node to display
 	void nodeInformation()
 	{
-		
+		// null param only on objects
 	}
 	
 	// clears the display once node is de-selected
