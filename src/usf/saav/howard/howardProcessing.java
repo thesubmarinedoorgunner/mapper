@@ -1,6 +1,7 @@
 package usf.saav.howard;
 
 import processing.core.PApplet;
+import processing.data.JSONObject;
 
 public class howardProcessing extends PApplet
 {
@@ -11,7 +12,7 @@ public class howardProcessing extends PApplet
 	
 	public void settings()
 	{
-		size(1600, 900, P3D);
+		size(1200, 600, P3D);
 	}
 	
 	// setup and draw like normal Processing
@@ -24,8 +25,15 @@ public class howardProcessing extends PApplet
 	public void draw()
 	{
 		background(255);
+		staticFunctions.buildTopDisplay(this);
+		
 		
 	}
+	
+	public void mousePressed() {}
+	
+	public void mouseReleased() {}
+	
 	
 	public static void main(String [] args) {
 		// don't touch

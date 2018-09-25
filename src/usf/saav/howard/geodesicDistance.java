@@ -1,10 +1,10 @@
 package usf.saav.howard;
 import java.util.*;
 
-import usf.saav.howard.Point.java;
 
 public class geodesicDistance 
 {
+	/*
 	public static void main(String args[])
 	{
 		ArrayList<Point> Points = new ArrayList();
@@ -16,9 +16,10 @@ public class geodesicDistance
 		}
 	}
 	
+	*/
 	
 }
-
+/*
 static void mousePressed()
 {
 	int mouseX, mouseY;
@@ -42,3 +43,4 @@ boolean withinRange()
 		}
 	}
 }
+*/

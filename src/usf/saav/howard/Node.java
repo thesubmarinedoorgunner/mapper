@@ -13,7 +13,37 @@ public class Node {
 	{
 		this.id = object.getString("id");
 		this.group = object.getInt("group");
+		
+		// this.posX = posX;
+		// this.posY = posY;
+		// need to add position
 	}
+	
+	
+	/*
+	 * Experimenting with stuff
+	 */
+	
+	float posX, posY; 
+	float geodesic;
+	
+	float getGeodesic()
+	{
+		return this.geodesic;
+	}
+	void setGeodesic(float geodesic)
+	{
+		this.geodesic = geodesic;
+	}
+	
+	
+	// float half = height / 2;
+
+	
+	/*
+	 * Done experiementing
+	 */
+	
 	
 	// returns to write back to file
 	public JSONObject returnFunction()
