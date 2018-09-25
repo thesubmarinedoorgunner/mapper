@@ -25,7 +25,13 @@ public class howardProcessing extends PApplet
 	public void draw()
 	{
 		background(255);
-		staticFunctions.buildTopDisplay(this);
+		//staticFunctions.buildTopDisplay(this);
+		ActiveBox box1 = new ActiveBox(width - 150, 0, 150, 150);
+		
+		box1.draw(this);
+		
+		Node tempNode = new Node(width/2, height/2);
+		tempNode.draw(this);
 		
 		
 	}
