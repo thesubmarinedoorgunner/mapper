@@ -23,6 +23,5 @@ public abstract class Frame
 	
 	void mouseReleased() {}
 	
-	
 
 }

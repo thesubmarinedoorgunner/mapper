@@ -1,5 +1,7 @@
 package usf.saav.howard;
 
+import java.io.File;
+
 import processing.core.PApplet;
 import processing.data.JSONObject;
 
@@ -20,8 +22,21 @@ public class howardProcessing extends PApplet
 	{
 		ortho(); 
 		frameRate(30);
+		selectInput("Select a file to process", "fileSelected");
 	}
 	
+	void fileSelected(File selection)
+	{
+		if (selection == null)
+		{
+			System.out.println("Windows was closed or user hit cancel");
+			exit();
+		}
+		else
+		{
+			System.out.println("User selected " + selection.getAbsolutePath() );
+		}
+	}
 	public void draw()
 	{
 		background(255);
@@ -39,6 +54,20 @@ public class howardProcessing extends PApplet
 	public void mousePressed() {}
 	
 	public void mouseReleased() {}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	public static void main(String [] args) {
