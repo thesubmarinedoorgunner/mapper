@@ -3,7 +3,7 @@ package usf.saav.howard;
 import processing.core.PApplet;
 import processing.data.JSONObject;
 
-public class Node {
+public class Node extends Frame{
 	
 	// class members
 	String id;

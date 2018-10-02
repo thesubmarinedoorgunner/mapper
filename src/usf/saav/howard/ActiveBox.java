@@ -25,6 +25,12 @@ public class ActiveBox extends Frame {
 		
 	}
 	
+//	if ( mouseInside )
+//	{
+//		// don't draw the node 
+//		
+//	}
+	
 	// gets the information from node to display
 	void nodeInformation()
 	{

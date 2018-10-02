@@ -23,5 +23,12 @@ public abstract class Frame
 	
 	void mouseReleased() {}
 	
+	boolean mouseInside(int x, int y, PApplet p)
+	{
+		int clickBuffer = 5;
+		
+		return ( (this.u0 - clickBuffer < p.mouseX) && (this.u0 + w + clickBuffer) > p.mouseX && (this.v0 - clickBuffer) < p.mouseY && (v0 + h +clickBuffer) > p.mouseY );
+		
+	}
 
 }

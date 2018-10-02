@@ -1,6 +1,7 @@
 package usf.saav.howard;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import processing.core.PApplet;
 import processing.data.JSONObject;
@@ -37,21 +38,45 @@ public class howardProcessing extends PApplet
 			System.out.println("User selected " + selection.getAbsolutePath() );
 		}
 	}
+	
+	// if clicked, create a new node and add
+	
+	// after parsing
+//	NodeSet NS = new NodeSet();
+	ArrayList<Node> nodes = new ArrayList<Node>();
+	ActiveBox box1 = new ActiveBox(width - 150, 0, 150, 150);
+	
 	public void draw()
 	{
 		background(255);
-		//staticFunctions.buildTopDisplay(this);
-		ActiveBox box1 = new ActiveBox(width - 150, 0, 150, 150);
-		
+
 		box1.draw(this);
+
+		// why ?
+		ActiveBox box2 = new ActiveBox(width - 150, 0, 150, 150);
+		box2.draw(this);
 		
-		Node tempNode = new Node(width/2, height/2);
-		tempNode.draw(this);
+		for (Node temp : nodes)
+		{
+			temp.draw(this);
+		}
+		
+		
+		// the node works. Leave for testing 
+//		Node tempNode = new Node(width/2, height/2);
+//		tempNode.draw(this);
 		
 		
 	}
 	
-	public void mousePressed() {}
+	public void mousePressed() 
+	{
+		if ( !box1.mouseInside(mouseX, mouseY, this) )
+		{
+			// holy for loop runtime increase if I check every single node for x and y position
+			nodes.add(new Node(mouseX, mouseY) );
+		}
+	}
 	
 	public void mouseReleased() {}
 	
