@@ -11,11 +11,13 @@ public class howardProcessing extends PApplet
 	
 	public howardProcessing() {
 	// can put stuff here, but don't
+		println( "constructor: " + width );
 	}
 	
 	public void settings()
 	{
 		size(1200, 600, P3D);
+		println( "settings: " + width );
 	}
 	
 	// setup and draw like normal Processing
@@ -23,10 +25,15 @@ public class howardProcessing extends PApplet
 	{
 		ortho(); 
 		frameRate(30);
-		selectInput("Select a file to process", "fileSelected");
+		//selectInput("Select a file to process", "fileSelected");
+		
+		println( "setup: " + width );
+		
+		box1 = new ActiveBox(width - 150, 0, 150, 150);
+		
 	}
 	
-	void fileSelected(File selection)
+	public void fileSelected(File selection)
 	{
 		if (selection == null)
 		{
@@ -44,7 +51,7 @@ public class howardProcessing extends PApplet
 	// after parsing
 //	NodeSet NS = new NodeSet();
 	ArrayList<Node> nodes = new ArrayList<Node>();
-	ActiveBox box1 = new ActiveBox(width - 150, 0, 150, 150);
+	ActiveBox box1 = null;
 	
 	public void draw()
 	{
@@ -53,8 +60,8 @@ public class howardProcessing extends PApplet
 		box1.draw(this);
 
 		// why ?
-		ActiveBox box2 = new ActiveBox(width - 150, 0, 150, 150);
-		box2.draw(this);
+//		ActiveBox box2 = new ActiveBox(width - 150, 0, 150, 150);
+//		box2.draw(this);
 		
 		for (Node temp : nodes)
 		{
@@ -62,23 +69,42 @@ public class howardProcessing extends PApplet
 		}
 		
 		
+		if( sel != null ) {
+			sel.posX = mouseX;
+			sel.posY = mouseY;
+		}
 		// the node works. Leave for testing 
 //		Node tempNode = new Node(width/2, height/2);
 //		tempNode.draw(this);
 		
 		
 	}
-	
+
+	Node sel = null;
+
 	public void mousePressed() 
 	{
 		if ( !box1.mouseInside(mouseX, mouseY, this) )
 		{
 			// holy for loop runtime increase if I check every single node for x and y position
-			nodes.add(new Node(mouseX, mouseY) );
+			
+			float thres = 10;
+			for( Node n : nodes ) {
+				float d = n.EuclideanDistance(mouseX, mouseY);
+				if( d < thres ) {
+					sel = n;
+					thres = d;
+				}
+			}
+			if( sel == null ) {
+				nodes.add(new Node(mouseX, mouseY) );
+			}
 		}
 	}
 	
-	public void mouseReleased() {}
+	public void mouseReleased() {
+		sel = null;
+	}
 	
 	
 	

@@ -12,6 +12,7 @@ public class ActiveBox extends Frame {
 		this.w = w;
 		this.h = h;
 	}
+	
 	@Override
 	void draw(PApplet p) {
 		// TODO Auto-generated method stub

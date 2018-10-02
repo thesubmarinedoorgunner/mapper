@@ -3,7 +3,7 @@ package usf.saav.howard;
 import processing.core.PApplet;
 import processing.data.JSONObject;
 
-public class Node extends Frame{
+public class Node extends Frame {
 	
 	// class members
 	String id;
@@ -41,6 +41,11 @@ public class Node extends Frame{
 	/*
 	 * Experimenting with stuff
 	 */
+	
+	
+	public float EuclideanDistance( float x, float y ) {
+		return (float)Math.sqrt( (x-posX)*(x-posX) + (y-posY)*(y-posY) );
+	}
 	
 	
 	float getGeodesic()
