@@ -1,7 +1,6 @@
 package usf.saav.howard;
 
 import processing.core.PApplet;
-import processing.data.JSONObject;
 
 public class Edge {
 	

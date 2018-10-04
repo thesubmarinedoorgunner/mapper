@@ -29,6 +29,7 @@ public class Node extends Frame {
 		// need to add position
 	}
 	
+	@Override
 	void draw(PApplet p)
 	{
 		p.stroke(0);

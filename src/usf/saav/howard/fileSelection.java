@@ -1,9 +1,7 @@
 package usf.saav.howard;
 
 import processing.core.PApplet;
-import java.util.*;
 import java.io.File;
-import java.lang.*;
 
 
 

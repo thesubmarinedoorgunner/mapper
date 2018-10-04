@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
-import processing.data.JSONObject;
 
 public class howardProcessing extends PApplet
 {
@@ -14,6 +13,7 @@ public class howardProcessing extends PApplet
 		println( "constructor: " + width );
 	}
 	
+	@Override
 	public void settings()
 	{
 		size(1200, 600, P3D);
@@ -21,6 +21,7 @@ public class howardProcessing extends PApplet
 	}
 	
 	// setup and draw like normal Processing
+	@Override
 	public void setup()
 	{
 		ortho(); 
@@ -53,6 +54,7 @@ public class howardProcessing extends PApplet
 	ArrayList<Node> nodes = new ArrayList<Node>();
 	ActiveBox box1 = null;
 	
+	@Override
 	public void draw()
 	{
 		background(255);
@@ -82,6 +84,7 @@ public class howardProcessing extends PApplet
 
 	Node sel = null;
 
+	@Override
 	public void mousePressed() 
 	{
 		if ( !box1.mouseInside(mouseX, mouseY, this) )
@@ -102,6 +105,7 @@ public class howardProcessing extends PApplet
 		}
 	}
 	
+	@Override
 	public void mouseReleased() {
 		sel = null;
 	}

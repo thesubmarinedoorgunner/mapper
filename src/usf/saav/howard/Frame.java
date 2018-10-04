@@ -2,7 +2,6 @@ package usf.saav.howard;
 
 // taken from the brilliant ideas of Dr. Rosen
 import processing.core.PApplet;
-import java.util.*;
 
 public abstract class Frame 
 {

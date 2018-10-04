@@ -1,5 +1,4 @@
 package usf.saav.howard;
-import java.util.*;
 
 
 public class geodesicDistance 
