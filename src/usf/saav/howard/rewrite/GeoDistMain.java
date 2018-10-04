@@ -1,20 +1,11 @@
-/**
- * 
- */
+
 package usf.saav.howard.rewrite;
 
 import processing.core.PApplet;
 
-/**
- * @author howardcheung
- *
- */
-
 public class GeoDistMain extends PApplet {
 
-	/**
-	 * 
-	 */
+
 	public GeoDistMain() {
 		// can put stuff in here, but do not
 		// just because you can, does not mean you should
@@ -35,6 +26,10 @@ public class GeoDistMain extends PApplet {
 	{
 		background(255);
 	}
+	
+	
+	
+	
 	
 	public static void main(String[] args) {
 		

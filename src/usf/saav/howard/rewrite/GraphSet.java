@@ -46,6 +46,14 @@ public class GraphSet {
 
 	protected void draw(PApplet p)
 	{
-		p.draw();
+		for (Node temp : nodes)
+		{
+			temp.draw(p);
+		}
+		for (Edge temp : edges)
+		{
+			temp.draw(p);
+		}
 	}
+	
 }

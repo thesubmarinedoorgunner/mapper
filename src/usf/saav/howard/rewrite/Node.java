@@ -54,7 +54,7 @@ public class Node {
 	
 	protected void draw(PApplet p)
 	{
-		p.draw();
+		p.ellipse(this.x, this.y, 5, 5);
 	}
 	
 }

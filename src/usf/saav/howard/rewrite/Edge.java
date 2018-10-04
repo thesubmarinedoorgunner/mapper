@@ -43,7 +43,7 @@ public class Edge {
 	
 	protected void draw(PApplet p)
 	{
-		p.draw();
+		p.line(p0.getX(), p0.getY(), p1.getX(), p1.getY() );
 	}
 	
 	
