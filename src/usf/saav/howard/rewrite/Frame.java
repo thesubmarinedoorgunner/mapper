@@ -7,9 +7,9 @@ public abstract class Frame extends FrameLite {
 //	int h0 = super.h0;
 	
 	@Override
-	protected abstract void draw(PApplet p);
+	public abstract void draw(PApplet p);
 	
-	protected boolean mouseInside(int x, int y, PApplet p)
+	public boolean mouseInside(int x, int y, PApplet p)
 	{
 		int clickBuffer = 5;
 		

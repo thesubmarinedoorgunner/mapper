@@ -6,13 +6,13 @@ import processing.core.PApplet;
 
 public class GraphSet {
 	
-	protected ArrayList<Node> nodes;
-	protected ArrayList<Edge> edges;
+	public ArrayList<Node> nodes;
+	public ArrayList<Edge> edges;
 	
 	GraphSet()
 	{
-		this.nodes = null;
-		this.edges = null;
+		this.nodes = new ArrayList<Node>();
+		this.edges = new ArrayList<Edge>();
 	}
 	GraphSet(ArrayList<Node> nodes, ArrayList<Edge> edges)
 	{
@@ -20,31 +20,46 @@ public class GraphSet {
 		this.edges = edges;
 	}
 	
-	protected void setGraph(ArrayList<Node> nodes, ArrayList<Edge> edges)
+	public void addNode(Node node)
 	{
-		this.nodes = nodes;
-		this.edges = edges;
+		nodes.add(node);
 	}
 	
-	protected void setNodes(ArrayList<Node> nodes)
+	public void addEdge(Edge edge)
 	{
-		this.nodes = nodes;
+		edges.add(edge);
 	}
-	protected ArrayList<Node> getNodes()
-	{
-		return this.nodes;
-	}
+//	public Node getNode()
+//	{
+//		
+//	}
 	
-	protected void setEdges(ArrayList<Edge> edges)
-	{
-		this.edges = edges;
-	}
-	protected ArrayList<Edge> getEdges()
-	{
-		return this.edges;
-	}
+	// I think Dr. Rosen said not to do this
+//	public void setGraph(ArrayList<Node> nodes, ArrayList<Edge> edges)
+//	{
+//		this.nodes = nodes;
+//		this.edges = edges;
+//	}
+//	
+//	public void setNodes(ArrayList<Node> nodes)
+//	{
+//		this.nodes = nodes;
+//	}
+//	public ArrayList<Node> getNodes()
+//	{
+//		return this.nodes;
+//	}
+//	
+//	public void setEdges(ArrayList<Edge> edges)
+//	{
+//		this.edges = edges;
+//	}
+//	public ArrayList<Edge> getEdges()
+//	{
+//		return this.edges;
+//	}
 
-	protected void draw(PApplet p)
+	public void draw(PApplet p)
 	{
 		for (Node temp : nodes)
 		{

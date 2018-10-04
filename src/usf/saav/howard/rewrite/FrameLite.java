@@ -6,7 +6,7 @@ import processing.core.PApplet;
 
 public abstract class FrameLite {
 	
-	protected int h0, v0, w, h;
+	public int h0, v0, w, h;
 	
 	FrameLite() {}
 	
@@ -18,7 +18,7 @@ public abstract class FrameLite {
 		this.h= h;
 	}
 	
-	protected void setPosition(int h0, int v0, int w, int h)
+	public void setPosition(int h0, int v0, int w, int h)
 	{
 		this.h0 = h0;
 		this.v0 = v0;
@@ -26,10 +26,10 @@ public abstract class FrameLite {
 		this.h = h;
 	}
 	
-	protected abstract void draw(PApplet p);
+	public abstract void draw(PApplet p);
 	
-	protected void mousePressed() {}
-	protected void mouseReleased() {}
+	public void mousePressed() {}
+	public void mouseReleased() {}
 	
 	
 

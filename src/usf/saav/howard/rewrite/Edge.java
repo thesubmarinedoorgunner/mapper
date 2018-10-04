@@ -17,31 +17,31 @@ public class Edge {
 		this.p1 = p1;
 	}
 	
-	protected void setEdge(Node p0, Node p1)
+	public void setEdge(Node p0, Node p1)
 	{
 		this.p0 = p0;
 		this.p1 = p1;
 	}
 	
-	protected void setp0(Node p0)
+	public void setp0(Node p0)
 	{
 		this.p0 = p0;
 	}
-	protected Node getp0()
+	public Node getp0()
 	{
 		return this.p0;
 	}
 	
-	protected void setp1(Node p1)
+	public void setp1(Node p1)
 	{
 		this.p1 = p1;
 	}
-	protected Node getp1()
+	public Node getp1()
 	{
 		return this.p1;
 	}
 	
-	protected void draw(PApplet p)
+	public void draw(PApplet p)
 	{
 		p.line(p0.getX(), p0.getY(), p1.getX(), p1.getY() );
 	}
