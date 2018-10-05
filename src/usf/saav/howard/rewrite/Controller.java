@@ -1,6 +1,7 @@
 package usf.saav.howard.rewrite;
 
 import java.util.ArrayList;
+import processing.core.PApplet;
 
 public abstract class Controller {
 
@@ -30,9 +31,15 @@ public abstract class Controller {
 		this.edges = edges;
 	}
 	
-	public void mousePressed()
+	public void mousePressed(PApplet p)
 	{
+		float thresh = 10;
 		
+		for (Node temp : nodes)
+		{
+			float d = temp.EuclideanDistance(p.mouseX, p.mouseY);
+			
+		}
 	}
 	public void mouseReleased()
 	{
