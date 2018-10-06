@@ -40,6 +40,9 @@ public class Controller {
 		{
 			selNode.setPosition(p.mouseX, p.mouseY);
 		}
+		
+		if (p0 != null)
+			System.out.println(selNode + " " + p0.getX() + " " + p0.getY() );
 	}
 	
 	public void mousePressed(PApplet p)
@@ -54,18 +57,18 @@ public class Controller {
 			
 			if (d < thresh)
 			{
-				if (selNode == null)
-				{
-					selNode = temp;
-					p0 = temp;
-					thresh = d; // why ?
-				}
 				if (p0 != null && p0 != temp)
 				{
 					Node p1 = temp;
 					edges.add( new Edge(p0, p1) );
 					p0 = null;
 				}
+				if (selNode == null)
+				{
+					selNode = p0 = temp;
+					thresh = d; // why ?
+				}
+
 			}
 		}
 	
@@ -86,5 +89,13 @@ public class Controller {
 	public void mouseReleased()
 	{
 		selNode = null;
+	}
+	
+	public void keyPressed(PApplet p)
+	{
+		if ( p.key == 'c' ) 
+		{
+			p0 = null;
+		}
 	}
 }

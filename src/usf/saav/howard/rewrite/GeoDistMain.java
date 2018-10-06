@@ -52,6 +52,10 @@ public class GeoDistMain extends PApplet {
 		test2.mouseReleased();
 	}
 	
+	public void keyPressed()
+	{
+		test2.keyPressed(this);
+	}
 	
 	public static void main(String[] args) {
 		

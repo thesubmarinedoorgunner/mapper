@@ -31,6 +31,11 @@ public abstract class FrameLite {
 	public void mousePressed() {}
 	public void mouseReleased() {}
 	
-	
+	public boolean mouseInside(int x, int y, PApplet p)
+	{
+		int clickBuffer = 5;
+		
+		return ( (this.h0 - clickBuffer < p.mouseX)&& (this.h0 + w + clickBuffer) > p.mouseX && (this.v0 - clickBuffer) < p.mouseY && (v0 + h +clickBuffer) > p.mouseY );
+	}
 
 }
