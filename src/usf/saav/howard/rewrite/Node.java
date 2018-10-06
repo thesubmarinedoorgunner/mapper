@@ -16,6 +16,11 @@ public class Node {
 		this.node = new PVector (x, y);
 	}
 	
+	public void setPosition(float x, float y)
+	{
+		this.node.x = x;
+		this.node.y = y;
+	}
 	public void setPVector(float x, float y)
 	{
 		this.node = new PVector(x, y);
@@ -43,9 +48,17 @@ public class Node {
 		return this.node.y;
 	}
 	
+	public float EuclideanDistance(float x, float y)
+	{
+		float dist = (float) Math.sqrt( (x - this.node.x)*(x - this.node.x) + (y - this.node.y)*(y - this.node.y) );
+		return dist; 
+	}
+	
 	public void draw(PApplet p)
 	{
-		p.ellipse(this.node.x, this.node.y, 5, 5);
+		p.stroke(0);
+		p.fill(100);
+		p.ellipse(this.node.x, this.node.y, 10, 10);
 	}
 	
 }

@@ -69,6 +69,7 @@ public class GraphSet {
 		{
 			temp.draw(p);
 		}
+		
 	}
 	
 }
