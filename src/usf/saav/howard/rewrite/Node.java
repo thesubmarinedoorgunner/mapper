@@ -6,14 +6,16 @@ import processing.core.PVector;
 public class Node {
 
 	private PVector node;
+	private int number;
 	
 	Node()
 	{
 		node = null;
 	}
-	Node(float x, float y)
+	Node(float x, float y, int number)
 	{
 		this.node = new PVector (x, y);
+		this.number = number;
 	}
 	
 	public void setPosition(float x, float y)
@@ -46,6 +48,14 @@ public class Node {
 	public float getY()
 	{
 		return this.node.y;
+	}
+	public void setNumber(int number)
+	{
+		this.number = number;
+	}
+	public int getNumber()
+	{
+		return this.number;
 	}
 	
 	public float EuclideanDistance(float x, float y)

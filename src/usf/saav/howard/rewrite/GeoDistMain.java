@@ -30,6 +30,10 @@ public class GeoDistMain extends PApplet {
 		
 		test1.draw(this);
 		test2.draw(this);
+		
+		test3.setPosition(width - 150, 0, 150, 150);
+		test3.setSelNode( test2.selected() );
+		test3.draw(this);
 //		if (test2.selected() != null)
 //		{
 //			test2.selected().setPosition(mouseX, mouseY);
@@ -41,6 +45,7 @@ public class GeoDistMain extends PApplet {
 	
 	GraphSet test1 = new GraphSet(nodes, edges);
 	Controller test2 = new Controller(nodes, edges);
+	ActiveBox test3 = new ActiveBox();
 	
 	public void mousePressed()
 	{

@@ -8,6 +8,10 @@ public abstract class FrameLite {
 	
 	public int h0, v0, w, h;
 	
+	// Why do I pass an instance of PApplet when I can just create one ?
+	// Because pass by reference ?
+	// PApplet applet;
+	
 	FrameLite() {}
 	
 	FrameLite(int h0, int v0, int w, int h)
@@ -38,4 +42,15 @@ public abstract class FrameLite {
 		return ( (this.h0 - clickBuffer < p.mouseX)&& (this.h0 + w + clickBuffer) > p.mouseX && (this.v0 - clickBuffer) < p.mouseY && (v0 + h +clickBuffer) > p.mouseY );
 	}
 
+	// thanks Dr. Rosen
+	
+	void textRHC( String s, float x, float y, PApplet p )
+	{
+		// wow formatting is awful	
+		 p.pushMatrix();
+		 p.translate(x,y);
+		 p.scale(1,-1,1);
+		 p.text( s, 0, 0 );
+		 p.popMatrix(); 
+	}
 }

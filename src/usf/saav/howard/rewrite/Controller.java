@@ -32,7 +32,7 @@ public class Controller {
 		this.edges = edges;
 	}
 	
-	public Node selected() { return this.selNode; }
+	public Node selected() { return this.p0; }
 	
 	void draw(PApplet p)
 	{
@@ -75,7 +75,7 @@ public class Controller {
 		// if node is not selected, add node
 		if (selNode == null)
 		{
-			nodes.add( new Node(p.mouseX, p.mouseY) );
+			nodes.add( new Node(p.mouseX, p.mouseY, nodes.size() + 1) );
 		}
 		
 		// deselect; has to be after the add function or else it will deselect and add at the same time
@@ -93,9 +93,17 @@ public class Controller {
 	
 	public void keyPressed(PApplet p)
 	{
-		if ( p.key == 'c' ) 
+//		if ( p.key == 'c' ) 
+//		{
+//			p0 = null;
+//		}
+		
+		// good for testing
+		// keep here for now. Above clears the node selected, which should be used in ActiveBox
+		if (p.key == 'c')
 		{
-			p0 = null;
+			this.nodes.clear();
+			this.edges.clear();
 		}
 	}
 }
