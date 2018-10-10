@@ -29,6 +29,11 @@ public class GraphSet {
 	{
 		edges.add(edge);
 	}
+	
+	// save and load a JSON in here
+	
+	// Dijkstra's algorithm here
+	
 //	public Node getNode()
 //	{
 //		

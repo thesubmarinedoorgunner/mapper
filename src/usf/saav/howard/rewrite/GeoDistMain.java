@@ -28,6 +28,7 @@ public class GeoDistMain extends PApplet {
 	{
 		background(255);
 		
+		// pass GS into controller and active box as a class
 		test1.draw(this);
 		test2.draw(this);
 		
@@ -60,6 +61,11 @@ public class GeoDistMain extends PApplet {
 	public void keyPressed()
 	{
 		test2.keyPressed(this);
+	}
+	
+	public void mouseClicked() {
+		
+		test2.mouseClicked(this);
 	}
 	
 	public static void main(String[] args) {

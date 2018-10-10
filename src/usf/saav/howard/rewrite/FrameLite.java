@@ -44,13 +44,13 @@ public abstract class FrameLite {
 
 	// thanks Dr. Rosen
 	
-	void textRHC( String s, float x, float y, PApplet p )
-	{
-		// wow formatting is awful	
-		 p.pushMatrix();
-		 p.translate(x,y);
-		 p.scale(1,-1,1);
-		 p.text( s, 0, 0 );
-		 p.popMatrix(); 
-	}
+//	void textRHC( String s, float x, float y, PApplet p )
+//	{
+//		// wow formatting is awful	
+//		 p.pushMatrix();
+//		 p.translate(x,y);
+//		 p.scale(1,-1,1);
+//		 p.text( s, 0, 0 );
+//		 p.popMatrix(); 
+//	}
 }

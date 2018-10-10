@@ -41,8 +41,8 @@ public class Controller {
 			selNode.setPosition(p.mouseX, p.mouseY);
 		}
 		
-		if (p0 != null)
-			System.out.println(selNode + " " + p0.getX() + " " + p0.getY() );
+		//if (p0 != null)
+			//System.out.println(selNode + " " + p0.getX() + " " + p0.getY() );
 	}
 	
 	public void mousePressed(PApplet p)
@@ -57,25 +57,9 @@ public class Controller {
 			
 			if (d < thresh)
 			{
-				if (p0 != null && p0 != temp)
-				{
-					Node p1 = temp;
-					edges.add( new Edge(p0, p1) );
-					p0 = null;
-				}
-				if (selNode == null)
-				{
-					selNode = p0 = temp;
+					selNode = temp;
 					thresh = d; // why ?
-				}
-
 			}
-		}
-	
-		// if node is not selected, add node
-		if (selNode == null)
-		{
-			nodes.add( new Node(p.mouseX, p.mouseY, nodes.size() + 1) );
 		}
 		
 		// deselect; has to be after the add function or else it will deselect and add at the same time
@@ -104,6 +88,39 @@ public class Controller {
 		{
 			this.nodes.clear();
 			this.edges.clear();
+		}
+	}
+
+	public void mouseClicked(PApplet p) {
+		
+		float thresh = 10;
+		
+		// if something is selected and conflicts, forgo this
+		// if the active box is not selected, do this
+		Node p1 = null;
+		for (Node temp : nodes)
+		{
+			float d = temp.EuclideanDistance(p.mouseX, p.mouseY);
+			
+			if (d < thresh)
+			{
+				thresh = d;
+				p1 = temp;
+			}
+		}
+
+		if( p1 == null ) {
+			nodes.add( new Node(p.mouseX,p.mouseY,nodes.size()) );
+		}
+		else {
+			if( p0 == null ) {
+				p0 = p1;
+			}
+			else if (p0 != p1)
+			{
+				edges.add( new Edge(p0, p1) );
+				p0 = null;
+			}
 		}
 	}
 }
