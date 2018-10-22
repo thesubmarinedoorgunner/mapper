@@ -8,6 +8,7 @@ public class Controller {
 	// because everything is pass by reference in Java
 	private ArrayList<Node> nodes;
 	private ArrayList<Edge> edges;
+	GraphSet GS;
 	
 	Node p0 = null;
 	// movement variables
@@ -18,12 +19,14 @@ public class Controller {
 	{
 		this.nodes = new ArrayList<Node>();
 		this.edges = new ArrayList<Edge>();
+		this.GS = new GraphSet();
 	}
 	
-	Controller (ArrayList<Node> nodes, ArrayList<Edge> edges)
+	Controller (ArrayList<Node> nodes, ArrayList<Edge> edges, GraphSet GS)
 	{
 		this.nodes = nodes;
 		this.edges = edges;
+		this.GS = GS;
 	}
 
 	public void setController(ArrayList<Node> nodes, ArrayList<Edge> edges)
@@ -91,33 +94,31 @@ public class Controller {
 		}
 	}
 
-	public void mouseClicked(PApplet p) {
-		
+	public void mouseClicked(PApplet p) 
+	{
 		float thresh = 10;
 		
 		// if something is selected and conflicts, forgo this
 		// if the active box is not selected, do this
 		Node p1 = null;
-		for (Node temp : nodes)
-		{
+		for (Node temp : nodes) {
 			float d = temp.EuclideanDistance(p.mouseX, p.mouseY);
 			
-			if (d < thresh)
-			{
+			if (d < thresh) {
 				thresh = d;
 				p1 = temp;
 			}
 		}
-
+		
 		if( p1 == null ) {
-			nodes.add( new Node(p.mouseX,p.mouseY,nodes.size()) );
+			nodes.add( new Node(p.mouseX, p.mouseY, nodes.size() + 1) );
 		}
-		else {
+		else 
+		{
 			if( p0 == null ) {
 				p0 = p1;
 			}
-			else if (p0 != p1)
-			{
+			else if (p0 != p1){
 				edges.add( new Edge(p0, p1) );
 				p0 = null;
 			}

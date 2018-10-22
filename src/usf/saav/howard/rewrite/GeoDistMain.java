@@ -1,9 +1,13 @@
 
 package usf.saav.howard.rewrite;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import processing.core.PApplet;
+import processing.data.JSONArray;
+import processing.data.JSONObject;
 
 public class GeoDistMain extends PApplet {
 
@@ -22,6 +26,10 @@ public class GeoDistMain extends PApplet {
 	{
 		ortho();
 		frameRate(30);
+		
+		// what kind of black magic did I do to make this work ?
+		selectInput("Select a file to process: ", "fileSelected");
+		
 	}
 	
 	public void draw()
@@ -45,7 +53,7 @@ public class GeoDistMain extends PApplet {
 	ArrayList<Edge> edges = new ArrayList<Edge>();
 	
 	GraphSet test1 = new GraphSet(nodes, edges);
-	Controller test2 = new Controller(nodes, edges);
+	Controller test2 = new Controller(nodes, edges, test1);
 	ActiveBox test3 = new ActiveBox();
 	
 	public void mousePressed()
@@ -68,6 +76,53 @@ public class GeoDistMain extends PApplet {
 		test2.mouseClicked(this);
 	}
 	
+	public void fileSelected(File selection)
+	{
+//		try
+//		{
+			if (selection == null)
+			{
+				System.out.println("Windows was closed or the user hit cancel ");
+				exit();
+			}
+			else
+			{
+				System.out.println("User selected: " + selection.getAbsolutePath() );
+				
+				// where did the imports go ?
+				JSONObject file;
+				JSONArray nodes, edges;
+				
+				file = loadJSONObject(selection.getAbsolutePath() );
+				nodes = file.getJSONArray("nodes");
+				edges = file.getJSONArray("edges");
+				
+				for (int i = 0; i < nodes.size(); i++)
+				{
+					JSONObject node = nodes.getJSONObject(i);
+					float x = node.getFloat("x");
+					float y = node.getFloat("y");
+					int num = node.getInt("number");
+					
+					((List<Node>) nodes).add( new Node(x, y, num) );
+				}
+				
+				for (int i = 0; i < edges.size(); i++)
+				{
+					JSONObject edge = edges.getJSONObject(i);
+					int source = edge.getInt("source");
+					int target = edge.getInt("target");
+					
+					((List<Edge>) edges).add( new Edge( ((List<Node>)nodes).get(source - 1), ((List<Node>)nodes).get(target - 1) ));
+				}
+			}
+		//}
+//		catch(Exception e)
+//		{
+//			
+//		}
+
+	}
 	public static void main(String[] args) {
 		
 		try
