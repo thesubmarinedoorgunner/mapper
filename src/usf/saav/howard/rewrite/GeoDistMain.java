@@ -37,11 +37,12 @@ public class GeoDistMain extends PApplet {
 		background(255);
 		
 		// pass GS into controller and active box as a class
-		test1.draw(this);
+		//test1.draw(this);
+		m.gs.draw(this);
 		test2.draw(this);
 		
 		test3.setPosition(width - 150, 0, 150, 150);
-		test3.setSelNode( test2.selected() );
+		test3.setSelNode( m.selNode );
 		test3.draw(this);
 //		if (test2.selected() != null)
 //		{
@@ -49,11 +50,13 @@ public class GeoDistMain extends PApplet {
 //		}
 	}
 	
-	ArrayList<Node> nodes = new ArrayList<Node>();
-	ArrayList<Edge> edges = new ArrayList<Edge>();
+	//ArrayList<Node> nodes = new ArrayList<Node>();
+	//ArrayList<Edge> edges = new ArrayList<Edge>();
 	
-	GraphSet test1 = new GraphSet(nodes, edges);
-	Controller test2 = new Controller(nodes, edges, test1);
+	//GraphSet test1 = new GraphSet(nodes, edges);
+	//Controller test2 = new Controller(nodes, edges, test1);
+	Model m = new Model();
+	Controller test2 = new Controller( m );
 	ActiveBox test3 = new ActiveBox();
 	
 	public void mousePressed()
@@ -63,7 +66,7 @@ public class GeoDistMain extends PApplet {
 	
 	public void mouseReleased()
 	{
-		test2.mouseReleased();
+		test2.mouseReleased(this);
 	}
 	
 	public void keyPressed()
@@ -73,6 +76,7 @@ public class GeoDistMain extends PApplet {
 		if (key == 's')
 		{
 			fileSave();
+			System.out.println("Supposed to have saved");
 		}
 	}
 	
@@ -136,11 +140,11 @@ public class GeoDistMain extends PApplet {
 		JSONArray nodesJS = new JSONArray();
 		JSONArray edgesJS = new JSONArray();
 		
-		for (int i = 0; i < nodes.size(); i++)
+		for (int i = 0; i < m.gs.nodes.size(); i++)
 		{
-			float x = nodes.get(i).getX();
-			float y = nodes.get(i).getY();
-			int num = nodes.get(i).getNumber();
+			float x = m.gs.nodes.get(i).getX();
+			float y = m.gs.nodes.get(i).getY();
+			int num = m.gs.nodes.get(i).getNumber();
 			
 			JSONObject temp = new JSONObject();
 			temp.setFloat("x", x);
@@ -150,10 +154,10 @@ public class GeoDistMain extends PApplet {
 		}
 		json.setJSONArray("nodes", nodesJS);
 				
-		for (int i = 0; i < edges.size(); i++)
+		for (int i = 0; i < m.gs.edges.size(); i++)
 		{
-			int source = edges.get(i).getp0().getNumber();
-			int target = edges.get(i).getp1().getNumber();
+			int source = m.gs.edges.get(i).getp0().getNumber();
+			int target = m.gs.edges.get(i).getp1().getNumber();
 			
 			JSONObject temp = new JSONObject();
 			temp.setInt("source", source);
@@ -162,6 +166,7 @@ public class GeoDistMain extends PApplet {
 		}
 		json.setJSONArray("edges",edgesJS);
 		
+		// do I use absolute path + this path ?
 		saveJSONObject(json, "data/data.json");
 	}
 	public static void main(String[] args) {
