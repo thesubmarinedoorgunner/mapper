@@ -69,6 +69,11 @@ public class GeoDistMain extends PApplet {
 	public void keyPressed()
 	{
 		test2.keyPressed(this);
+		
+		if (key == 's')
+		{
+			fileSave();
+		}
 	}
 	
 	public void mouseClicked() {
@@ -83,7 +88,7 @@ public class GeoDistMain extends PApplet {
 			if (selection == null)
 			{
 				System.out.println("Windows was closed or the user hit cancel ");
-				exit();
+				return;
 			}
 			else
 			{
@@ -122,6 +127,42 @@ public class GeoDistMain extends PApplet {
 //			
 //		}
 
+	}
+	
+	// only called when user presses 's'
+	public void fileSave()
+	{
+		JSONObject json = new JSONObject();
+		JSONArray nodesJS = new JSONArray();
+		JSONArray edgesJS = new JSONArray();
+		
+		for (int i = 0; i < nodes.size(); i++)
+		{
+			float x = nodes.get(i).getX();
+			float y = nodes.get(i).getY();
+			int num = nodes.get(i).getNumber();
+			
+			JSONObject temp = new JSONObject();
+			temp.setFloat("x", x);
+			temp.setFloat("y", y);
+			temp.setInt("number", num);
+			nodesJS.setJSONObject(i,temp);
+		}
+		json.setJSONArray("nodes", nodesJS);
+				
+		for (int i = 0; i < edges.size(); i++)
+		{
+			int source = edges.get(i).getp0().getNumber();
+			int target = edges.get(i).getp1().getNumber();
+			
+			JSONObject temp = new JSONObject();
+			temp.setInt("source", source);
+			temp.setInt("target", target);
+			edgesJS.setJSONObject(i, temp);
+		}
+		json.setJSONArray("edges",edgesJS);
+		
+		saveJSONObject(json, "data/data.json");
 	}
 	public static void main(String[] args) {
 		
