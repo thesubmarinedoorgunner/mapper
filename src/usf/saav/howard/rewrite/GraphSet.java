@@ -69,11 +69,21 @@ public class GraphSet {
 		for (Node temp : nodes)
 		{
 			temp.draw(p);
+			try
+			{
+				if ( !nodes.isEmpty() )
+					staticGeodesic.Dijkstra(nodes, edges, temp);
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
 		}
 		for (Edge temp : edges)
 		{
 			temp.draw(p);
 		}
+		
 		
 	}
 	

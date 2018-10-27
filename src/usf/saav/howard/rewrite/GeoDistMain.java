@@ -48,6 +48,7 @@ public class GeoDistMain extends PApplet {
 //		{
 //			test2.selected().setPosition(mouseX, mouseY);
 //		}
+		
 	}
 	
 	//ArrayList<Node> nodes = new ArrayList<Node>();

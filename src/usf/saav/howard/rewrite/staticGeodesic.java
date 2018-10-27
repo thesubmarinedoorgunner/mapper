@@ -18,7 +18,7 @@ public class staticGeodesic {
 		int prev[] = new int[edges.size()];
 		
 		// if I use GeeksforGeeks, then I need a 2D array ?
-		int graph[][] = new int[nodes.size()][nodes.size()];
+		int matrix[][] = new int[nodes.size()][nodes.size()];
 		
 //		for (int i = 0; i < nodes.size(); i++)
 //		{
@@ -28,8 +28,22 @@ public class staticGeodesic {
 //			}
 //		}
 		
-		Arrays.fill(graph, 0);
 		
+//		Arrays.fill(matrix, -1);
+		
+		for ( int[] row : matrix )
+		{
+			Arrays.fill(row, Integer.MAX_VALUE);
+		}
+		
+		for (int i = 0; i < nodes.size(); i++)
+		{
+			for (int j = 0; j < nodes.size(); j++)
+			{
+				System.out.print(matrix[i][j] + " ");
+			}
+			System.out.println();
+		}
 		return steps;
 	}
 
