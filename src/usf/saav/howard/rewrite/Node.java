@@ -7,6 +7,7 @@ public class Node {
 
 	private PVector node;
 	private int number;
+	private float geodesic = -1;
 	
 	Node()
 	{
@@ -57,6 +58,15 @@ public class Node {
 	{
 		return this.number;
 	}
+	public float getGeodesic()
+	{
+		return this.geodesic;
+	}
+	public void setGeodesic(float geodesic)
+	{
+		this.geodesic = geodesic;
+	}
+	
 	
 	public float EuclideanDistance(float x, float y)
 	{

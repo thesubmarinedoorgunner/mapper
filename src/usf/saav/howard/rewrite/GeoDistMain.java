@@ -39,11 +39,11 @@ public class GeoDistMain extends PApplet {
 		// pass GS into controller and active box as a class
 		//test1.draw(this);
 		m.gs.draw(this);
-		test2.draw(this);
+		controller.draw(this);
 		
-		test3.setPosition(width - 150, 0, 150, 150);
-		test3.setSelNode( m.selNode );
-		test3.draw(this);
+		activeBox.setPosition(width - 150, 0, 150, 150);
+		activeBox.setSelNode( m.selNode );
+		activeBox.draw(this);
 //		if (test2.selected() != null)
 //		{
 //			test2.selected().setPosition(mouseX, mouseY);
@@ -56,22 +56,22 @@ public class GeoDistMain extends PApplet {
 	//GraphSet test1 = new GraphSet(nodes, edges);
 	//Controller test2 = new Controller(nodes, edges, test1);
 	Model m = new Model();
-	Controller test2 = new Controller( m );
-	ActiveBox test3 = new ActiveBox();
+	Controller controller = new Controller( m );
+	ActiveBox activeBox = new ActiveBox();
 	
 	public void mousePressed()
 	{
-		test2.mousePressed(this);
+		controller.mousePressed(this);
 	}
 	
 	public void mouseReleased()
 	{
-		test2.mouseReleased(this);
+		controller.mouseReleased(this);
 	}
 	
 	public void keyPressed()
 	{
-		test2.keyPressed(this);
+		controller.keyPressed(this);
 		
 		if (key == 's')
 		{
@@ -82,7 +82,7 @@ public class GeoDistMain extends PApplet {
 	
 	public void mouseClicked() {
 		
-		test2.mouseClicked(this);
+		controller.mouseClicked(this);
 	}
 	
 	public void fileSelected(File selection)
