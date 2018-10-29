@@ -7,12 +7,11 @@ public class Node {
 
 	private PVector node;
 	private int number;
-	private float geodesic = -1;
+//	private float geodesic = -1;
+	public Dijkstra dijkstrasAlgorithm = new Dijkstra();
 	
-	Node()
-	{
-		node = null;
-	}
+	Node() {this.node = null;}
+
 	Node(float x, float y, int number)
 	{
 		this.node = new PVector (x, y);
@@ -24,48 +23,22 @@ public class Node {
 		this.node.x = x;
 		this.node.y = y;
 	}
-	public void setPVector(float x, float y)
-	{
-		this.node = new PVector(x, y);
-	}
-	public PVector getPVector()
-	{
-		return this.node;
-	}
+	public void setPVector(float x, float y) {this.node = new PVector(x, y);}
+	public PVector getPVector() {return this.node;}
 	
-	public void setX(float x)
-	{
-		this.node.x = x;
-	}
-	public float getX()
-	{
-		return this.node.x;
-	}
+	public void setX(float x) {this.node.x = x;}
+	public float getX() {return this.node.x;}
+
 	
-	public void setY(float y)
-	{
-		this.node.y = y;
-	}
-	public float getY()
-	{
-		return this.node.y;
-	}
-	public void setNumber(int number)
-	{
-		this.number = number;
-	}
-	public int getNumber()
-	{
-		return this.number;
-	}
-	public float getGeodesic()
-	{
-		return this.geodesic;
-	}
-	public void setGeodesic(float geodesic)
-	{
-		this.geodesic = geodesic;
-	}
+	public void setY(float y) {this.node.y = y;}
+	public float getY() {return this.node.y;}
+
+	public void setNumber(int number) {this.number = number;}
+	public int getNumber() {return this.number;}
+
+//	public float getGeodesic() {return this.geodesic;}
+//	public void setGeodesic(float geodesic) {this.geodesic = geodesic;}
+
 	
 	
 	public float EuclideanDistance(float x, float y)

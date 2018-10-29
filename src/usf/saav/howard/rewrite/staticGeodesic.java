@@ -2,6 +2,7 @@ package usf.saav.howard.rewrite;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class staticGeodesic {
 
@@ -14,12 +15,13 @@ public class staticGeodesic {
 		float steps = -1;
 		
 		// should be arraylist ?
-		int dist[] = new int[nodes.size()];
-		int prev[] = new int[edges.size()];
+//		int dist[] = new int[nodes.size()];
+//		int prev[] = new int[edges.size()];
 		
 		// if I use GeeksforGeeks, then I need a 2D array ?
 		int matrix[][] = new int[nodes.size()][nodes.size()];
 		
+		PriorityQueue PQ = new PriorityQueue();
 //		for (int i = 0; i < nodes.size(); i++)
 //		{
 //			for (int j = 0; j < nodes.size(); j++)
@@ -36,14 +38,19 @@ public class staticGeodesic {
 			Arrays.fill(row, Integer.MAX_VALUE);
 		}
 		
-		for (int i = 0; i < nodes.size(); i++)
-		{
-			for (int j = 0; j < nodes.size(); j++)
-			{
-				System.out.print(matrix[i][j] + " ");
-			}
-			System.out.println();
-		}
+//		for (int i = 0; i < nodes.size(); i++)
+//		{
+//			for (int j = 0; j < nodes.size(); j++)
+//			{
+//				System.out.print(matrix[i][j] + " ");
+//			}
+//			System.out.println();
+//		}
+		
+		Node[] id = new Node[nodes.size()];
+		
+		// maybe I need to return the dist[] and prev[] ?
+		// I know you can't return two things, but the pseudocode says I need to
 		return steps;
 	}
 

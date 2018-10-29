@@ -28,14 +28,9 @@ public class ActiveBox extends FrameLite{
 	
 	// have setter for active node
 	// node should automagically set itself back to node b/c pass by ref ?
-	public void setSelNode(Node p0)
-	{
-		this.p0 = p0;
-	}
-	public void setGeodesic(float geodesic)
-	{
-		this.geodesic = geodesic;
-	}
+	public void setSelNode(Node p0) {this.p0 = p0;}
+	public void setGeodesic(float geodesic) {this.geodesic = geodesic;}
+
 	// have setter for geodesic
 	
 	// abstract class already has a setPosition function

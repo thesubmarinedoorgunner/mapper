@@ -20,15 +20,9 @@ public class GraphSet {
 		this.edges = edges;
 	}
 	
-	public void addNode(Node node)
-	{
-		nodes.add(node);
-	}
-	
-	public void addEdge(Edge edge)
-	{
-		edges.add(edge);
-	}
+	public void addNode(Node node) {nodes.add(node);}
+	public void addEdge(Edge edge) {edges.add(edge);}
+
 	
 	// save and load a JSON in here
 	

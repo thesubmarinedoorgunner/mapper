@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1538505248098</id>
+			<id>1540838918647</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -25,9 +25,9 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1538505248101</id>
+			<id>1540838918652</id>
 			<name></name>
-			<type>6</type>
+			<type>22</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
 				<arguments>1.0-name-matches-false-false-.DS_Store</arguments>
