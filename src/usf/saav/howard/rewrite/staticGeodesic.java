@@ -10,6 +10,9 @@ public class staticGeodesic {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public static ArrayList<Node> getCurrentNodeSet(ArrayList<Node> nodes) {return nodes; }
+	public static ArrayList<Edge> getCurrentEdges(ArrayList<Edge> edges) { return edges; }
+
 	public static float Dijkstra(ArrayList<Node> nodes, ArrayList<Edge> edges, Node node)
 	{
 		float steps = -1;
