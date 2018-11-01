@@ -11,6 +11,9 @@ public class Dijkstra {
 	private ArrayList<Edge> path = new ArrayList<Edge>();
 	PriorityQueue<Node> PQ;
 	
+	// naive
+	ArrayList<Edge> visited = new ArrayList<Edge>();
+	
 	private Node base;
 	
 	public Dijkstra() {
@@ -42,9 +45,41 @@ public class Dijkstra {
 			if (base.EuclideanDistance(node1) > base.EuclideanDistance(node2) ) { return 1; }
 			if (base.EuclideanDistance(node1) < base.EuclideanDistance(node2) ) { return -1; }
 
-			return 0;
-			
+			return 0;	
 		}
 	}
+	
+	// naive find min
+	// this doesn't find min. Need Euclidean distance
+	Edge getMinEdge(Node target)
+	{
+		int count = 0;
+		Edge min = null;
+		
+		// this for loop is incorrect
+		for (Edge edge : edges)
+		{
+			Edge potential = null;
+			if ( (edge.getp0() == base && edge.getp1() == target) 
+				|| (edge.getp0() == target && edge.getp1() == base)	)
+			{
+				potential = edge;
+				break;
+			}
+		}
+		
+		// shortest min edge already exists
+//		for (Edge edge : path)
+//		{
+//			if (edge == potential)
+//			{
+//				return null;
+//			}
+//		}
+		
+		return min;
+	}
+	
+	
 	
 }

@@ -29,7 +29,6 @@ public class Node {
 	public void setX(float x) { this.node.x = x; }
 	public float getX() { return this.node.x; }
 
-	
 	public void setY(float y) { this.node.y = y; }
 	public float getY() { return this.node.y; }
 
@@ -39,8 +38,6 @@ public class Node {
 //	public float getGeodesic() {return this.geodesic;}
 //	public void setGeodesic(float geodesic) {this.geodesic = geodesic;}
 
-	
-	
 	public float EuclideanDistance(float x, float y)
 	{
 		float dist = (float) Math.sqrt( (x - this.node.x)*(x - this.node.x) + (y - this.node.y)*(y - this.node.y) );
