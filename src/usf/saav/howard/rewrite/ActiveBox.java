@@ -38,6 +38,7 @@ public class ActiveBox extends FrameLite{
 	public void draw(PApplet p)
 	{
 		p.fill(255);
+		p.stroke(0);
 		p.rect(this.h0, this.v0, this.w, this.h, 7);
 		
 		p.textSize(12);

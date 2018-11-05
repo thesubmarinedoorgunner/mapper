@@ -59,7 +59,7 @@ public class Edge {
 	{
 		System.out.println("Drawing heavy");
 		p.stroke(0);
-		p.line(p0.getX(), p0.getY(), p1.getX(), p1.getX() );
+		p.line(p0.getX(), p0.getY(), p1.getX(), p1.getY() );
 	}
 
 }

@@ -88,15 +88,16 @@ public class Dijkstra {
 		while ( !queue.isEmpty() )
 		{
 			Node u = findMin();
+			if ( u == null ) { return; }
 			//System.out.println("But we're still here ?");
 			System.out.println( queue.size() );
 			ArrayList<Edge> neighbors = getNeighbors( u );
 			
-			if ( neighbors.size() == 0 )
-			{
-				queue.remove(u);
-				continue;
-			}
+//			if ( neighbors.size() == 0 )
+//			{
+//				queue.remove(u);
+//				continue;
+//			}
 			
 			
 			for (Edge edge : neighbors)
@@ -128,7 +129,7 @@ public class Dijkstra {
 		Node isMin = null;
 		for (int i = 0; i < queue.size(); i++)
 		{
-			if ( Integer.valueOf( dist.get( queue.get(i) ) ) == Integer.MAX_VALUE) { continue; }
+			//if ( Integer.valueOf( dist.get( queue.get(i) ) ) == Integer.MAX_VALUE) { continue; }
 			if ( Integer.valueOf( dist.get( queue.get(i) ) ) < min )
 			{
 				min = Integer.valueOf( dist.get( queue.get(i) ) );
@@ -136,7 +137,7 @@ public class Dijkstra {
 			}
 		}
 		
-		if ( min == Integer.MAX_VALUE) { return queue.get(0); }
+		//if ( min == Integer.MAX_VALUE) { return queue.get(0); }
 		
 		return isMin;
 	}
@@ -173,18 +174,28 @@ public class Dijkstra {
 	
 	public void setPath()
 	{
-		Iterator iterate = previous.entrySet().iterator();
-		while ( iterate.hasNext() )
+//		Iterator iterate = previous.entrySet().iterator();
+//		while ( iterate.hasNext() )
+//		{
+//			HashMap.Entry pair = (HashMap.Entry)iterate.next();
+//			
+//			if ( pair.getValue() == null )
+//			{
+//				iterate.remove(); // avoids a ConcurrentModificationException
+//				continue;
+//			}
+//			// I think the problem is when I cast
+//			path.add( findEdge( (Node)pair.getKey(), (Node)pair.getValue()) );
+//			
+//		}
+		
+		// this gives me the same problem
+		for (Node key : previous.keySet() )
 		{
-			HashMap.Entry pair = (HashMap.Entry)iterate.next();
-			
-			if ( pair.getValue() == null )
+			if ( previous.get(key) != null ) 
 			{
-				iterate.remove(); // avoids a ConcurrentModificationException
-				continue;
+				path.add( findEdge( key, previous.get(key) )) ;
 			}
-			path.add( findEdge( (Node)pair.getKey(), (Node)pair.getValue()) );
-			
 		}
 	}
 	
@@ -262,4 +273,22 @@ public class Dijkstra {
 	
 	*/
 	
+	public class DijkstraCalculation
+	{
+		private float dist;
+		private Node prev;
+		DijkstraCalculation()
+		{
+			this.dist = Float.MAX_VALUE;
+			this.prev = null;
+		}
+		
+		public float getDist() { return this.dist; }
+		public void setDist(float dist) { this.dist = dist; }
+		
+		public Node getPrev() { return this.prev; }
+		public void setPrev(Node prev) { this.prev = prev; }
+		
+		
+	}
 }
