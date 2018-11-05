@@ -41,11 +41,25 @@ public class Edge {
 		return this.p1;
 	}
 	
-	public void draw(PApplet p)
+	public float getEuclideanDistance()
 	{
-		p.line(p0.getX(), p0.getY(), p1.getX(), p1.getY() );
+		float xSq = ( p1.getX() - p0.getX() ) * ( p1.getX() - p0.getX() );
+		float ySq = ( p1.getY() - p0.getY() ) * ( p1.getY() - p0.getY() );
+		float dist = (float)Math.sqrt( xSq + ySq );
+		
+		return dist;
 	}
 	
-	
+	public void draw(PApplet p)
+	{
+		p.stroke(200);
+		p.line(p0.getX(), p0.getY(), p1.getX(), p1.getY() );
+	}
+	public void drawHeavy(PApplet p)
+	{
+		System.out.println("Drawing heavy");
+		p.stroke(0);
+		p.line(p0.getX(), p0.getY(), p1.getX(), p1.getX() );
+	}
 
 }

@@ -11,6 +11,13 @@ public class Model {
 	public Model() {
 		gs = new GraphSet();
 		// TODO Auto-generated constructor stub
+//		if (selNode != null)
+//		{
+//			gs.DijkstraSet(selNode);
+//			System.out.println("Should've created Dijkstra");
+//		}
 	}
+	
+	
 
 }

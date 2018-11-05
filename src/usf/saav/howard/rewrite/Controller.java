@@ -47,10 +47,12 @@ public class Controller {
 
 	void draw(PApplet p)
 	{
+		if ( m.selNode != null && !m.gs.edges.isEmpty() ) { m.gs.DijkstraSet(m.selNode); }
 		if ( m.selNode != null && p.mousePressed )
 		{
 			m.selNode.setPosition(p.mouseX, p.mouseY);
 		}
+		
 		
 		//if (p0 != null)
 			//System.out.println(selNode + " " + p0.getX() + " " + p0.getY() );

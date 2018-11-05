@@ -2,13 +2,20 @@ package usf.saav.howard.rewrite;
 
 import processing.core.PApplet;
 import processing.core.PVector;
+import java.util.ArrayList;
 
 public class Node {
 
 	private PVector node;
 	private int number;
 //	private float geodesic = -1;
-	public Dijkstra dijkstrasAlgorithm = new Dijkstra();
+	/*
+	ArrayList<Node> nodes = new ArrayList<Node>();
+	ArrayList<Edge> edges = new ArrayList<Edge>();
+	*/
+	
+	// I don't think calculating Dijkstra's here is the best implementation
+	//public Dijkstra dijkstrasAlgorithm = new Dijkstra();
 	
 	Node() { this.node = null; }
 
