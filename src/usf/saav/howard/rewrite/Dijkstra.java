@@ -64,6 +64,11 @@ public class Dijkstra {
 	public void setEdge(ArrayList<Edge> edges) { this.edges = edges; }
 	//public void setPQ(ArrayList<Node> nodes, ArrayList<Edge> edges, Node base) { this.PQ = new PriorityQueue(nodes.size(), new compare() ); }
 	
+	/**********
+	 * 
+	 * @author howardcheung
+	 * The naive Dijkstra starts here
+	 
 	
 //	public void setInfinity() 
 //	{
@@ -219,8 +224,13 @@ public class Dijkstra {
 //		return found;
 //	}
 //	
+ 	And ends here
+	**********/
 	
-	
+	public void setInfinandNull()
+	{
+		
+	}
 	
 	
 	
@@ -281,10 +291,18 @@ public class Dijkstra {
 	{
 		private float dist;
 		private Node prev;
+		private Edge edge;
 		DijkstraContainer()
 		{
 			this.dist = Float.MAX_VALUE;
 			this.prev = null;
+			this.edge = null; 
+		}
+		DijkstraContainer(float zero)
+		{
+			this.dist = zero;
+			this.prev = null;
+			this.edge = null;
 		}
 		
 		public float getDist() { return this.dist; }
@@ -292,6 +310,10 @@ public class Dijkstra {
 		
 		public Node getPrev() { return this.prev; }
 		public void setPrev(Node prev) { this.prev = prev; }
+		
+		public Edge retrieveEdge() { return this.edge; }
+		public void updateEdge(Edge edge) { this.edge = edge; }
+
 		
 		
 	}
