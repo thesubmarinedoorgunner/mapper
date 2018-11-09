@@ -55,6 +55,9 @@ public class Dijkstra {
 //		System.out.println("Path was set.");
 		
 		this.container = new HashMap<Node, DijkstraContainer>();
+		setInfinAndNull();
+		calculateDijkstra();
+		setPath();
 
 	}
 	
@@ -227,14 +230,106 @@ public class Dijkstra {
  	And ends here
 	**********/
 	
-	public void setInfinandNull()
+	public void setInfinAndNull()
 	{
-		
+		for (Node node : nodes)
+		{
+			DijkstraContainer temp;
+			if (node == this.base)
+			{
+				temp = new DijkstraContainer( (float)0 );
+				this.container.put(node, temp);
+			}
+			else
+			{
+				temp = new DijkstraContainer();
+				this.container.put(node, temp);
+			}
+		}
 	}
 	
+	public void calculateDijkstra()
+	{
+		while ( !queue.isEmpty() )
+		{
+			Node u = findMin();
+			if ( u == null ) { return; }
+			
+			ArrayList<Edge> neighbors = getNeighbors( u );
+			
+			if ( neighbors.size() == 0 )
+			{
+				queue.remove( u );
+				continue;
+			}
+			
+			for (Edge edge : neighbors)
+			{
+				Node v = null;
+				if ( edge.getp0() == u ) { v = edge.getp1(); }
+				else if ( edge.getp1() == u ) { v = edge.getp0(); }
+				
+				float alt = container.get( u ).getDist() + edge.getEuclideanDistance();
+				
+				if ( alt < container.get( v ).getDist() )
+				{
+					container.get(v).setDist(alt);
+					container.get(v).setPrev(u);
+					container.get(v).updateEdge(edge);
+				}
+			}
+			neighbors.clear();
+			queue.remove(u);
+		}
+	}
 	
+	public Node findMin()
+	{
+		float min = Float.MAX_VALUE;
+		Node isMin = null;
+		for (int i = 0; i < queue.size(); i++)
+		{
+			if ( container.get( queue.get(i) ).getDist() < min )
+			{
+				min = container.get( queue.get(i) ).getDist();
+				isMin = queue.get(i);
+			}
+		}
+		
+		return isMin;
+	}
 	
+	public ArrayList<Edge> getNeighbors(Node u)
+	{
+		ArrayList<Edge> neighbors = new ArrayList<Edge>();
+		
+		for (Edge edge : edges)
+		{
+			if ( edge.getp0() == u /*&& queue.contains(edge.getp1()  )*/)
+			{	
+				neighbors.add(edge);
+			}
+			if ( edge.getp1() == u /*&& queue.contains(edge.getp0() )*/)
+			{
+				neighbors.add(edge);
+			}
+		}
+		return neighbors;
+	}
 	
+	public void setPath()
+	{
+		for (Node key : container.keySet() )
+		{
+			//if ( container.get(key) != null ) 
+			//{
+				if ( container.get(key).getPrev() != null)
+				{
+					path.add( container.get(key).retrieveEdge() );
+				}
+			//}
+		}
+	}
 	
 	
 

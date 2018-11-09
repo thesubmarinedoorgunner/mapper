@@ -82,11 +82,12 @@ public class GraphSet {
 		{
 			try
 			{
-				if ( dijkstra != null && dijkstra.path.contains(temp) )
-				{
-					temp.drawHeavy(p);
-				}
-				else { temp.draw(p); }
+//				if ( dijkstra != null && dijkstra.path.contains(temp) )
+//				{
+//					temp.drawHeavy(p);
+////				}
+//				else { temp.draw(p); }
+				temp.draw(p);
 			}
 			catch( Exception e)
 			{
@@ -94,7 +95,17 @@ public class GraphSet {
 			}
 			
 		}
-		
+		try
+		{
+			for (Edge temp : dijkstra.path)
+			{
+				temp.drawHeavy(p);
+			}
+		}
+		catch( Exception e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
 	
