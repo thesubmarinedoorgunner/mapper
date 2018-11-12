@@ -113,6 +113,7 @@ public class Controller {
 			m.gs.nodes.clear();
 			m.gs.edges.clear();
 			m.selNode = null;
+			m.gs.dijkstra.path.clear();
 		}
 	}
 

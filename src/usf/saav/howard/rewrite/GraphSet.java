@@ -95,6 +95,7 @@ public class GraphSet {
 			}
 			
 		}
+		// needed this try catch block and this separate print
 		try
 		{
 			for (Edge temp : dijkstra.path)

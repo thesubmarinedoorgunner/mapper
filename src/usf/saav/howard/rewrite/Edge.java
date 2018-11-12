@@ -53,13 +53,16 @@ public class Edge {
 	public void draw(PApplet p)
 	{
 		p.stroke(200);
+		
 		p.line(p0.getX(), p0.getY(), p1.getX(), p1.getY() );
 	}
 	public void drawHeavy(PApplet p)
 	{
 		//System.out.println("Drawing heavy");
-		p.stroke(0);
+		p.stroke(0, 0, 255);
+		p.strokeWeight(5);
 		p.line(p0.getX(), p0.getY(), p1.getX(), p1.getY() );
+		p.strokeWeight(1);
 	}
 
 }
