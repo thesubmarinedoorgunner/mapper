@@ -73,48 +73,45 @@ public class GraphSet {
 
 	public void draw(PApplet p)
 	{
-		for (Node temp : nodes)
-		{
-			temp.draw(p);
-//			try
-//			{
-//				if ( !nodes.isEmpty() )
-//					staticGeodesic.Dijkstra(nodes, edges, temp);
-//			}
-//			catch(Exception e)
-//			{
-//				e.printStackTrace();
-//			}
-		}
-		for (Edge temp : edges)
-		{
-			try
-			{
-//				if ( dijkstra != null && dijkstra.path.contains(temp) )
-//				{
-//					temp.drawHeavy(p);
-////				}
-//				else { temp.draw(p); }
-				temp.draw(p);
-			}
-			catch( Exception e)
-			{
-				e.printStackTrace();
-			}
-			
-		}
-		// needed this try catch block and this separate print
 		try
 		{
+			for (Node temp : nodes)
+			{
+				temp.draw(p);
+	//			try
+	//			{
+	//				if ( !nodes.isEmpty() )
+	//					staticGeodesic.Dijkstra(nodes, edges, temp);
+	//			}
+	//			catch(Exception e)
+	//			{
+	//				e.printStackTrace();
+	//			}
+			}
+			for (Edge temp : edges)
+			{
+	
+	//				if ( dijkstra != null && dijkstra.path.contains(temp) )
+	//				{
+	//					temp.drawHeavy(p);
+	////				}
+	//				else { temp.draw(p); }
+					temp.draw(p);
+	
+				
+			}
+			// needed this try catch block and this separate print
+	
 			for (Edge temp : dijkstra.path)
 			{
 				temp.drawHeavy(p);
 			}
 		}
-		catch( Exception e)
+		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
+
 		
 	}
 	
