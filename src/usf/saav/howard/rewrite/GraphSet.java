@@ -21,12 +21,20 @@ public class GraphSet {
 		this.edges = edges;
 	}
 	
-	public void addNode(Node node) {nodes.add(node);}
-	public void addEdge(Edge edge) {edges.add(edge);}
+	public void addNode(Node node) { nodes.add(node); }
+	public void addEdge(Edge edge) { edges.add(edge); }
 
 	public void DijkstraSet(Node u)
 	{
+		//long start = System.currentTimeMillis(); 
+		long start = System.nanoTime();
+		
 		dijkstra = new Dijkstra(this.nodes, this.edges, u);
+		
+		//long end = System.currentTimeMillis();
+		long end = System.nanoTime();
+		
+		System.out.println("Takes " + (end- start) + "nanoseconds to run Dijkstra's");
 				
 	}
 	// save and load a JSON in here

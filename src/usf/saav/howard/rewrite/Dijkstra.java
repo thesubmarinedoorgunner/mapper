@@ -54,6 +54,7 @@ public class Dijkstra {
 //		setPath();
 //		System.out.println("Path was set.");
 		
+		// for new implementation
 		this.container = new HashMap<Node, DijkstraContainer>();
 		setInfinAndNull();
 		calculateDijkstra();

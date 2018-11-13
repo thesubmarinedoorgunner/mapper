@@ -23,23 +23,12 @@ public class Edge {
 		this.p1 = p1;
 	}
 	
-	public void setp0(Node p0)
-	{
-		this.p0 = p0;
-	}
-	public Node getp0()
-	{
-		return this.p0;
-	}
-	
-	public void setp1(Node p1)
-	{
-		this.p1 = p1;
-	}
-	public Node getp1()
-	{
-		return this.p1;
-	}
+	public Node getp0() { return this.p0; }
+	public void setp0(Node p0) { this.p0 = p0; }
+
+	public Node getp1() { return this.p1; }
+	public void setp1(Node p1) { this.p1 = p1; }
+
 	
 	public float getEuclideanDistance()
 	{
