@@ -115,6 +115,11 @@ public class Controller {
 			m.selNode = null;
 			m.gs.dijkstra.path.clear();
 		}
+		
+//		if (p.key == 'p')
+//		{
+//			m.gs.generateRandom(p);
+//		}
 	}
 
 	public void mouseClicked(PApplet p) 

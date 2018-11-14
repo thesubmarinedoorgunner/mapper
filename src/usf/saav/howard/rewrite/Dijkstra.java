@@ -410,7 +410,6 @@ public class Dijkstra {
 		public Edge retrieveEdge() { return this.edge; }
 		public void updateEdge(Edge edge) { this.edge = edge; }
 
-		
-		
 	}
+	
 }

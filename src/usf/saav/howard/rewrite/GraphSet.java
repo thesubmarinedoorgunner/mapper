@@ -26,17 +26,44 @@ public class GraphSet {
 
 	public void DijkstraSet(Node u)
 	{
-		//long start = System.currentTimeMillis(); 
-		long start = System.nanoTime();
+		long start = System.currentTimeMillis(); 
+		//long start = System.nanoTime();
 		
 		dijkstra = new Dijkstra(this.nodes, this.edges, u);
 		
-		//long end = System.currentTimeMillis();
-		long end = System.nanoTime();
+		long end = System.currentTimeMillis();
+		//long end = System.nanoTime();
 		
-		System.out.println("Takes " + (end- start) + "nanoseconds to run Dijkstra's");
+		System.out.println("Takes " + (end- start) + "ms to run Dijkstra's");
 				
 	}
+	
+	/* only for testing
+	
+	public void generateRandom(PApplet p)
+	{
+		try
+		{
+			for (int i = 0; i < 10; i++)
+			{
+				nodes.add( new Node ( p.random(100, p.width -100), p.random(100, p.height - 100), nodes.size() ));
+			}
+			
+			for (int i = 0; i < 10; i++)
+			{
+				edges.add( new Edge( nodes.get( (int)p.random(0,nodes.size()-1) ), nodes.get( (int)p.random(0,nodes.size()-1 )) ));
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	
+	*/
+	
+	
 	// save and load a JSON in here
 	
 	// Dijkstra's algorithm here
