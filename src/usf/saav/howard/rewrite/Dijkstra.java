@@ -10,17 +10,17 @@ import java.util.Queue;
 
 public class Dijkstra {
 
-	public ArrayList<Node> nodes;
-	public ArrayList<Edge> edges;
+	private ArrayList<Node> nodes;
+	private ArrayList<Edge> edges;
 	
 	public ArrayList<Edge> path = new ArrayList<Edge>();
 	//private ArrayList<Node> previous = new ArrayList<Node>();
 	//PriorityQueue<Node> PQ;
 	
 	//int dist[];
-	public HashMap<Node, Integer> dist = new HashMap<Node, Integer>();
-	public HashMap<Node, Node> previous = new HashMap<Node, Node>();
-	ArrayList<Node> queue;
+	//public HashMap<Node, Integer> dist = new HashMap<Node, Integer>();
+	//public HashMap<Node, Node> previous = new HashMap<Node, Node>();
+	private ArrayList<Node> queue;
 	
 	// naive
 	//ArrayList<Edge> visited = new ArrayList<Edge>();
@@ -388,6 +388,7 @@ public class Dijkstra {
 		private float dist;
 		private Node prev;
 		private Edge edge;
+		
 		DijkstraContainer()
 		{
 			this.dist = Float.MAX_VALUE;
